@@ -5,6 +5,11 @@
   "main": "server.ts",
   "author": "Ashwin-singaravel <ashwin.singaravel.97@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "18.13.0",
+    "npm": "8.19.3",
+    "yarn": "1.22.19"
+  },
   "scripts": {
     "start": "export NODE_ENV=prod && ts-node -r tsconfig-paths/register src/server.ts",
     "startDev": "nodemon -V --exec ts-node -r tsconfig-paths/register src/server.ts"
