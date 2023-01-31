@@ -6,7 +6,6 @@
   "author": "Ashwin-singaravel <ashwin.singaravel.97@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
     "start": "export NODE_ENV=production && ts-node -r tsconfig-paths/register src/server.ts",
     "startDev": "nodemon -V --exec ts-node -r tsconfig-paths/register src/server.ts"
   },
