@@ -1,0 +1,20 @@
+{
+  "name": "cutshort",
+  "version": "1.0.0",
+  "description": "Cutshort backend assignment",
+  "main": "server.ts",
+  "author": "Ashwin-singaravel <ashwin.singaravel.97@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./bin/server.js",
+    "dev": "ts-node ./src/server.ts"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
