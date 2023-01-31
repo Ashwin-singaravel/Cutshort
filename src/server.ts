@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import 'reflect-metadata';
 import { IncomingMessage } from './types';
 import registerRoutes from './register-routes';
-import { connect } from 'mongoose';
+import { connect, ConnectOptions } from 'mongoose';
 
 const server = express();
 const httpServer = http.createServer(server);
@@ -31,17 +31,24 @@ server.use(bodyParser.urlencoded({ limit: '25mb', extended: true }));
 server.get('/', (_1, res) => res.send(`${API_NAME} listening!`));
 registerRoutes(server);
 
-httpServer.listen(PORT, async () => {
-    try {
-        const url = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_HOST}/${process.env.MONGO_DB_DEFAULT}`;
-        await connect(url, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false,
-            useCreateIndex: true
-        });
-        console.info(`${API_NAME} listening on port ${PORT}!`);
-    } catch (error) {
-        console.info(`MongoConnection Error: ${error}`);
+try {
+
+    const url = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_HOST}/${process.env.MONGO_DB_DEFAULT}`;
+    const connectOptions: ConnectOptions = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
     }
-});
+
+    connect(url, connectOptions, function (err) {
+        if (err) { throw Error(); }
+
+        httpServer.listen(PORT, async () => {
+            console.info(`${API_NAME} listening on port ${PORT}!`);
+        })
+    })
+
+} catch (error) {
+    console.info(`MongoConnection Error: ${error}`);
+}
