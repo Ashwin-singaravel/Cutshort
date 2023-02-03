@@ -7,7 +7,7 @@ import Auth from "src/auth/v1";
 
 
 export const signUp = async (signUp: SignUp) => {
-    if (signUp.email == null || signUp.password == null || signUp.username == null) {
+    if (signUp.email == undefined || signUp.password == undefined || signUp.username == undefined) {
         throw 1002;
     }
 
@@ -34,7 +34,7 @@ export const signUp = async (signUp: SignUp) => {
 }
 
 export const signIn = async (signIn: SignIn) => {
-    if (signIn.email == null || signIn.password == null) {
+    if (signIn.email == undefined || signIn.password == undefined) {
         throw 1002;
     }
 

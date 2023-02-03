@@ -1,20 +1,12 @@
-import { Algorithm } from 'jsonwebtoken';
+import { SignOptions } from 'jsonwebtoken';
 
 export interface Config {
     app: App;
-    jwt: Jwt;
+    jwt: SignOptions;
 }
 
 interface App {
     version: string;
     name: string;
     port: number;
-}
-
-interface Jwt {
-    issuer: string;
-    subject: string;
-    audience: string;
-    expiresIn: string;
-    algorithm: Algorithm;
 }

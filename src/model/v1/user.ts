@@ -25,7 +25,7 @@ const UserSchema: Schema = new Schema({
     updated_at: {
         type: Date
     }
-}, { versionKey: false })
+})
 
 UserSchema.statics.saveUserData = async function (query: SignUp) {
     return this.findOneAndUpdate({

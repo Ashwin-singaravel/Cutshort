@@ -20,6 +20,19 @@ const messages: { [key: number]: Message } = {
     1107: { status: FAILURE, message: 'Account does not exists' },
     1108: { status: FAILURE, message: 'Unable to Sign-in' },
     1109: { status: FAILURE, message: 'Invalid credentials' },
+
+    // Authentication messages
+    1200: { status: SUCCESS, message: 'User Authenticated' },
+    1201: { status: FAILURE, message: 'Session is invalid please login again' },
+    1202: { status: FAILURE, message: 'Session has expired please login again' },
+
+    // Todo
+    1300: { status: SUCCESS, message: 'Todo created successfully' },
+    1301: { status: FAILURE, message: 'Unable to create to todo' },
+    1302: { status: SUCCESS, message: 'Todo update successfully' },
+    1303: { status: FAILURE, message: 'Unable to update todo' },
+    1304: { status: FAILURE, message: 'Todo not found' },
+    1305: { status: FAILURE, message: 'Permission denied to update todo' },
 }
 
 export default messages;

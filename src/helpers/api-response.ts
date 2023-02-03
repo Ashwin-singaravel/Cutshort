@@ -7,9 +7,13 @@ export const apiResponse = (
   messageCode: number,
   data?: any
 ) => {
-  return response.status(status).json({ ...messages[messageCode], ...isDefined(data) ? { data } : {} });
+  return response.status(status).json({ ...messages[(isNumber(data) ? data : messageCode)], ...isDefined(data) ? isNumber(data) ? {} : { data } : {}});
 };
 
 export const isDefined = (data: any) => {
   return data != null;
+}
+
+const isNumber = (data: any) => {
+  return typeof data === 'number';
 }

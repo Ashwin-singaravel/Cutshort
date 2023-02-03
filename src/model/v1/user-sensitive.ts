@@ -30,7 +30,7 @@ const UserSensitiveSchema: Schema = new Schema({
     last_sign_in: {
         type: Date
     }
-}, { versionKey: false })
+})
 
 UserSensitiveSchema.statics.savePassword = async function (password: Password) {
     return this.updateOne({

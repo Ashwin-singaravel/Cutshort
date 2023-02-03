@@ -16,7 +16,7 @@ export default class UserRegistration {
       return apiResponse(res, 200, 1000, signUpUser)
 
     } catch (error) {
-      return apiResponse(res, 500, typeof error === "number" ? error : 1001, typeof error === "string" ? error : null);
+      return apiResponse(res, 500, 1001, error);
     }
   }
 
@@ -29,7 +29,7 @@ export default class UserRegistration {
       return apiResponse(res, 200, 1106, signInUser)
 
     } catch (error) {      
-      return apiResponse(res, 500, typeof error === "number" ? error : 1008, typeof error === "string" ? error : null);
+      return apiResponse(res, 500, 1008, error);
     }
   }
 
