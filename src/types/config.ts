@@ -4,6 +4,7 @@ export interface Config {
     app: App;
     jwt: SignOptions;
     mongo: Mongo;
+    keys: Keys;
 }
 
 interface App {
@@ -17,4 +18,9 @@ interface Mongo {
     password: string;
     host: string;
     db: string;
+}
+
+interface Keys {
+    private: string;
+    public: string;
 }

@@ -1,4 +1,5 @@
 import { Config } from '../../types/index';
+import path from 'path';
 
 export const devSettings: Config = {
     app: {
@@ -18,5 +19,9 @@ export const devSettings: Config = {
         password: process.env.MONGO_DB_PASSWORD as string,
         host: process.env.MONGO_DB_HOST as string,
         db: process.env.MONGO_DB_DEFAULT as string
+    },
+    keys: {
+        private: path.join(__dirname, '..', '..', '/auth/keys/private.key'),
+        public: path.join(__dirname, '..', '..', '/auth/keys/public.key')
     }
 }

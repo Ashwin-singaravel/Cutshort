@@ -1,7 +1,6 @@
 import fs from 'fs';
 import jwt from 'jsonwebtoken';
 import config from 'src/config';
-import path from 'path';
 
 export default class Auth {
 
@@ -24,14 +23,9 @@ export default class Auth {
         });
     }
 
-    private static privateKEY = fs.readFileSync(
-        path.join(__dirname, '..', '/keys/private.key'),
-        'utf8'
-    );
-    private static publicKEY = fs.readFileSync(
-        path.join(__dirname, '..', '/keys/public.key'),
-        'utf8'
-    );
+    private static privateKEY = fs.readFileSync(config.keys.private, 'utf8');
+
+    private static publicKEY = fs.readFileSync(config.keys.public,'utf8');
     
     private static JWToptions = config.jwt;
 }
