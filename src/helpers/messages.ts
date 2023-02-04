@@ -23,13 +23,13 @@ const messages: { [key: number]: Message } = {
 
     // Authentication messages
     1200: { status: SUCCESS, message: 'User Authenticated' },
-    1201: { status: FAILURE, message: 'Session is invalid please login again' },
+    1201: { status: FAILURE, message: 'Session is invalid please login' },
     1202: { status: FAILURE, message: 'Session has expired please login again' },
 
     // Todo
     1300: { status: SUCCESS, message: 'Todo created successfully' },
-    1301: { status: FAILURE, message: 'Unable to create to todo' },
-    1302: { status: SUCCESS, message: 'Todo update successfully' },
+    1301: { status: FAILURE, message: 'Unable to create todo' },
+    1302: { status: SUCCESS, message: 'Todo updated successfully' },
     1303: { status: FAILURE, message: 'Unable to update todo' },
     1304: { status: FAILURE, message: 'Todo not found' },
     1305: { status: FAILURE, message: 'Permission denied to update todo' },
@@ -37,9 +37,24 @@ const messages: { [key: number]: Message } = {
     1307: { status: FAILURE, message: 'Unable to delete todo' },
     1308: { status: FAILURE, message: 'Permission denied to delete todo' },
     1309: { status: SUCCESS, message: 'Todo details retrived successfully' },
-    1310: { status: FAILURE, message: 'Unable to retrive to todo' },
-    1311: { status: SUCCESS, message: 'Todo list retrived successfully' },
-    1312: { status: FAILURE, message: 'Unable to retrive todo list' },
+    1310: { status: FAILURE, message: 'Unable to retrive todo' },
+    1311: { status: SUCCESS, message: 'Todos list retrived successfully' },
+    1312: { status: FAILURE, message: 'Unable to retrive todos list' },
+
+    // Post
+    1400: { status: SUCCESS, message: 'Post created successfully' },
+    1401: { status: FAILURE, message: 'Unable to create post' },
+    1402: { status: SUCCESS, message: 'Post updated successfully' },
+    1403: { status: FAILURE, message: 'Unable to update post' },
+    1404: { status: FAILURE, message: 'Post not found' },
+    1405: { status: FAILURE, message: 'Permission denied to update post' },
+    1406: { status: SUCCESS, message: 'Post deleted successfully' },
+    1407: { status: FAILURE, message: 'Unable to delete post' },
+    1408: { status: FAILURE, message: 'Permission denied to delete post' },
+    1409: { status: SUCCESS, message: 'Post details retrived successfully' },
+    1410: { status: FAILURE, message: 'Unable to retrive post' },
+    1411: { status: SUCCESS, message: 'Posts list retrived successfully' },
+    1412: { status: FAILURE, message: 'Unable to retrive posts list' },
 }
 
 export default messages;

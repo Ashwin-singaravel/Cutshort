@@ -1,20 +1,18 @@
 import mongoose from "mongoose";
 import { PageInfo } from "src/types/v1";
 
-export interface Todo {
+export interface Post {
     title: string;
-    completed?: boolean;
 }
 
-export interface CreateTodo extends Todo {
+export interface CreatePost extends Post {
     _id?: mongoose.Types.ObjectId;
     user_id: mongoose.Types.ObjectId;
 }
 
-export interface ListTodos extends PageInfo{
+export interface ListPosts extends PageInfo {
     search?: string;
-    completed?: boolean | string;
     created_by?: string;
 }
 
-export interface UpdateTodo extends CreateTodo {}
+export interface UpdatePost extends CreatePost { }
