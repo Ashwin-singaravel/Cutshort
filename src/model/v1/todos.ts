@@ -1,6 +1,6 @@
 import mongoose, { Schema, Model, Document, UpdateWriteOpResult } from 'mongoose';
 import { pagination } from 'src/helpers/pagination';
-import { createdBy } from 'src/helpers/todos';
+import { createdBy } from 'src/helpers';
 import { CreateTodo, ListTodos, UpdateTodo } from 'src/types/controllers/v1/todos';
 
 export interface TodoDocument extends Document {
@@ -64,11 +64,11 @@ TodoSchema.statics.readTodo = async function (_id: string) {
         $project: {
             title: 1,
             completed: 1,
-            created_by: '$user_id'
+            user_id: 1
         }
     })
 
-    options.push(...createdBy('created_by'));
+    options.push(...createdBy('user_id'));
 
     return this.aggregate(options);
 }

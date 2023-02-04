@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Comments from 'src/model/v1/ comments';
 import Posts from 'src/model/v1/posts';
 import { ListPosts, Post } from 'src/types/controllers/v1/posts';
 
@@ -68,5 +69,7 @@ export const deletePost = async (_id: string, user_id: string) => {
     if ((await Posts.deleteOne({ _id: _id, user_id: user_id })).deletedCount == 0) {        
         throw await Posts.findById(_id) ? 1405 : 1408;
     }
+
+    await Comments.deleteMany({ post_id: _id });
 
 }

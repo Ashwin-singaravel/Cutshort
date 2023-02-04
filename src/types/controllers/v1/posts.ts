@@ -6,7 +6,6 @@ export interface Post {
 }
 
 export interface CreatePost extends Post {
-    _id?: mongoose.Types.ObjectId;
     user_id: mongoose.Types.ObjectId;
 }
 
@@ -15,4 +14,6 @@ export interface ListPosts extends PageInfo {
     created_by?: string;
 }
 
-export interface UpdatePost extends CreatePost { }
+export interface UpdatePost extends CreatePost { 
+    _id: mongoose.Types.ObjectId;
+}

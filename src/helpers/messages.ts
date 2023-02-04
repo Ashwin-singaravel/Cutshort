@@ -55,6 +55,21 @@ const messages: { [key: number]: Message } = {
     1410: { status: FAILURE, message: 'Unable to retrive post' },
     1411: { status: SUCCESS, message: 'Posts list retrived successfully' },
     1412: { status: FAILURE, message: 'Unable to retrive posts list' },
+
+    // Comments
+    1500: { status: SUCCESS, message: 'Comment created successfully' },
+    1501: { status: FAILURE, message: 'Unable to create comment' },
+    1502: { status: SUCCESS, message: 'Comment updated successfully' },
+    1503: { status: FAILURE, message: 'Unable to update comment' },
+    1504: { status: FAILURE, message: 'Comment not found' },
+    1505: { status: FAILURE, message: 'Permission denied to update comment' },
+    1506: { status: SUCCESS, message: 'Comment deleted successfully' },
+    1507: { status: FAILURE, message: 'Unable to delete comment' },
+    1508: { status: FAILURE, message: 'Permission denied to delete comment' },
+    1509: { status: SUCCESS, message: 'Comment details retrived successfully' },
+    1510: { status: FAILURE, message: 'Unable to retrive comment' },
+    1511: { status: SUCCESS, message: 'Comments list retrived successfully' },
+    1512: { status: FAILURE, message: 'Unable to retrive comments list' },
 }
 
 export default messages;

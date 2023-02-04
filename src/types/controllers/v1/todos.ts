@@ -7,7 +7,6 @@ export interface Todo {
 }
 
 export interface CreateTodo extends Todo {
-    _id?: mongoose.Types.ObjectId;
     user_id: mongoose.Types.ObjectId;
 }
 
@@ -17,4 +16,6 @@ export interface ListTodos extends PageInfo{
     created_by?: string;
 }
 
-export interface UpdateTodo extends CreateTodo {}
+export interface UpdateTodo extends CreateTodo {
+    _id: mongoose.Types.ObjectId;
+}
