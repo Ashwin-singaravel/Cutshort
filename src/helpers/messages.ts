@@ -33,6 +33,13 @@ const messages: { [key: number]: Message } = {
     1303: { status: FAILURE, message: 'Unable to update todo' },
     1304: { status: FAILURE, message: 'Todo not found' },
     1305: { status: FAILURE, message: 'Permission denied to update todo' },
+    1306: { status: SUCCESS, message: 'Todo deleted successfully' },
+    1307: { status: FAILURE, message: 'Unable to delete todo' },
+    1308: { status: FAILURE, message: 'Permission denied to delete todo' },
+    1309: { status: SUCCESS, message: 'Todo details retrived successfully' },
+    1310: { status: FAILURE, message: 'Unable to retrive to todo' },
+    1311: { status: SUCCESS, message: 'Todo list retrived successfully' },
+    1312: { status: FAILURE, message: 'Unable to retrive todo list' },
 }
 
 export default messages;
