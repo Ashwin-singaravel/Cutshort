@@ -78,17 +78,25 @@ TodoSchema.statics.listTodos = async function (listParams: ListTodos) {
     const options = [];
     const afPipeline = [];
 
+    const match: any = {};
+
     if (listParams.search) {
-        options.push({
-            $match: {
-                title: {
-                    $regex: listParams.search,
-                    $options: '$i'
-                }
-            }
-        });
+        match.title = {
+            $regex: listParams.search,
+            $options: '$i'
+        }
     }
 
+    if (listParams.completed != undefined) {
+        match.completed = listParams.completed
+    }
+    
+    if (Object.keys(match).length > 0) {
+        options.push({
+            $match: match
+        })
+    }
+  
     afPipeline.push({
         $project: {
             title: 1,

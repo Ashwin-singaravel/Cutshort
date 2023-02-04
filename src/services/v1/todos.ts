@@ -35,6 +35,9 @@ export const readTodo = async (_id: string) => {
 }
 
 export const listTodos = async (listParams: ListTodos) => {
+    if (listParams.completed != undefined && typeof listParams.completed == 'string') {
+        listParams.completed = JSON.parse(listParams.completed) as boolean;
+    }
     const todos = await Todos.listTodos(listParams)
     return todos;
 }
@@ -55,6 +58,7 @@ export const updateTodo = async (body: Todo, userId: string, _id: string) => {
         throw await Todos.findById(_id) ? 1305 : 1304;
     }
 
+    return await readTodo(_id);
 
 }
 

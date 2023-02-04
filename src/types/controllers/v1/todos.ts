@@ -13,6 +13,7 @@ export interface CreateTodo extends Todo {
 
 export interface ListTodos extends PageInfo{
     search?: string;
+    completed?: boolean | string;
 }
 
 export interface UpdateTodo extends CreateTodo {}
