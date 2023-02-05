@@ -3,8 +3,6 @@ import EmailValidator from 'email-validator';
 import User from "src/model/v1/user";
 import UserSensitive from "src/model/v1/user-sensitive";
 import bcrypt from 'bcryptjs';
-import Auth from "src/auth/v1";
-
 
 export const signUp = async (signUp: SignUp) => {
     if (signUp.email == undefined || signUp.password == undefined || signUp.username == undefined) {
@@ -58,10 +56,8 @@ export const signIn = async (signIn: SignIn) => {
 
         await UserSensitive.signedIn(user._id)
 
-        return {
-            token: Auth.createToken({ userIdentifier: user._id }),
-            user: user
-        }
+        return user;
+
     } else {
         throw 1109;
     }

@@ -1,5 +1,5 @@
 import { Middleware, ExpressMiddlewareInterface } from 'routing-controllers';
-import Auth from 'src/auth/v1';
+import { Auth } from 'src/auth/v1';
 import { apiResponse } from 'src/helpers/index';
 import { Request, Response } from 'src/types';
 import { DecodedToken } from 'src/types/v1';

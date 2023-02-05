@@ -1,16 +1,24 @@
-import { SignOptions } from 'jsonwebtoken';
+import { CookieOptions } from 'express';
+import { SignOptions as Options } from 'jsonwebtoken';
 
 export interface Config {
     app: App;
-    jwt: SignOptions;
+    signOptions: SignOptions;
+    cookieOptions: CookieOptions;
     mongo: Mongo;
-    keys: Keys;
+    key: Key;
 }
 
 interface App {
     version: string;
     name: string;
     port: number;
+    cookieLabel: string;
+}
+
+interface SignOptions {
+    jwt: Options,
+    refreshJwt: Options
 }
 
 interface Mongo {
@@ -18,6 +26,11 @@ interface Mongo {
     password: string;
     host: string;
     db: string;
+}
+
+interface Key {
+    jwt: Keys,
+    refreshJwt: Keys
 }
 
 interface Keys {

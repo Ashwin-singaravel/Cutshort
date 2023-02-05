@@ -25,6 +25,7 @@ const messages: { [key: number]: Message } = {
     1200: { status: SUCCESS, message: 'User Authenticated' },
     1201: { status: FAILURE, message: 'Session is invalid please login' },
     1202: { status: FAILURE, message: 'Session has expired please login again' },
+    1203: { status: SUCCESS, message: 'Access token refreshed' },
 
     // Todo
     1300: { status: SUCCESS, message: 'Todo created successfully' },

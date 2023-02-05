@@ -1,18 +1,36 @@
 import { Config } from '../../types/index';
 import path from 'path';
+import { SignOptions } from 'jsonwebtoken';
+
+const signOptions: SignOptions = {
+    issuer: 'Cutshort ashwin',
+    subject: 'ashwin.singaravel.97@gmail.com',
+    audience: 'https://cutshort-vumw.onrender.com/',
+    algorithm: 'RS256'
+}
 
 export const prodSettings: Config = {
     app: {
         version: '1.0.0',
         name: 'cutshort',
-        port: 5000
+        port: 5000,
+        cookieLabel: 'jwt'
     },
-    jwt: {
-        issuer: 'Cutshort ashwin',
-        subject: 'ashwin.singaravel.97@gmail.com',
-        audience: 'https://cutshort-vumw.onrender.com/',
-        expiresIn: '12h',
-        algorithm: 'RS256'
+    signOptions: {
+        jwt: {
+            ...signOptions,
+            expiresIn: '12h',
+        },
+        refreshJwt: {
+            ...signOptions,
+            expiresIn: '1d'
+        }
+    },
+    cookieOptions: {
+        // httpOnly: true,
+        // sameSite: 'none',
+        // secure: true,
+        maxAge: 24 * 60 * 60 * 1000
     },
     mongo: {
         username: process.env.MONGO_DB_USERNAME as string,
@@ -20,8 +38,14 @@ export const prodSettings: Config = {
         host: process.env.MONGO_DB_HOST as string,
         db: process.env.MONGO_DB_DEFAULT as string
     },
-    keys: {
-        private: path.join(__dirname, '..', '..', '..', '/private.key'),
-        public: path.join(__dirname, '..', '..', '/auth/keys/public.key')
+    key: {
+        jwt: {
+            private: path.join(__dirname, '..', '..', '..', '/private.key'),
+            public: path.join(__dirname, '..', '..', '/auth/keys/public.key')
+        },
+        refreshJwt: {
+            private: path.join(__dirname, '..', '..', '..', '/refresh-private.key'),
+            public: path.join(__dirname, '..', '..', '/auth/keys/refresh-public.key')
+        }
     }
 }
