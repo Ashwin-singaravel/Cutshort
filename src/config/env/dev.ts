@@ -32,6 +32,12 @@ export const devSettings: Config = {
         // secure: true,
         maxAge: 24 * 60 * 60 * 1000
     },
+    rateLimit: {
+        windowMs: 15 * 60 * 1000,
+        max: 100,
+        standardHeaders: true,
+        legacyHeaders: false
+    },
     mongo: {
         username: process.env.MONGO_DB_USERNAME as string,
         password: process.env.MONGO_DB_PASSWORD as string,

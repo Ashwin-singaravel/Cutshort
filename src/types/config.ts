@@ -5,6 +5,7 @@ export interface Config {
     app: App;
     signOptions: SignOptions;
     cookieOptions: CookieOptions;
+    rateLimit: RateLimitOptions;
     mongo: Mongo;
     key: Key;
 }
@@ -19,6 +20,13 @@ interface App {
 interface SignOptions {
     jwt: Options,
     refreshJwt: Options
+}
+
+interface RateLimitOptions {
+    windowMs: number,
+    max: number,
+    standardHeaders: boolean,
+    legacyHeaders: boolean
 }
 
 interface Mongo {

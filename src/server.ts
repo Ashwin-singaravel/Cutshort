@@ -9,6 +9,7 @@ import 'reflect-metadata';
 import { IncomingMessage } from './types';
 import registerRoutes from './register-routes';
 import { connect } from 'mongoose';
+import rateLimit from 'express-rate-limit';
 
 const server = express();
 const httpServer = http.createServer(server);
@@ -16,6 +17,8 @@ const PORT = config.app.port;
 const API_NAME = config.app.name;
 
 server.use(cors());
+
+server.use(rateLimit(config.rateLimit));
 
 server.use(
     bodyParser.json({
