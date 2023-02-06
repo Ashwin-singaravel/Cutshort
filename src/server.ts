@@ -24,6 +24,7 @@ server.use(
     bodyParser.json({
         verify: (req: IncomingMessage, _, buf: Buffer) => {
             req.rawBody = buf;
+            console.log(req.method + " = " + req.url);
         },
         limit: '25mb'
     })
